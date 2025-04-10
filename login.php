@@ -1,39 +1,39 @@
-
 <?php
 session_start();
-$erro = "";
+$erro = '';
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+$usuario_salvo = 'admin';
+$senha_hash_salva = password_hash('123456', PASSWORD_DEFAULT);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $_POST['usuario'] ?? '';
     $senha = $_POST['senha'] ?? '';
 
-    if (isset($_SESSION['usuarios'][$usuario]) && password_verify($senha, $_SESSION['usuarios'][$usuario])) {
-        $_SESSION['logado'] = $usuario;
-        header("Location: protegido.php");
-        exit();
+    if ($usuario === $usuario_salvo && password_verify($senha, $senha_hash_salva)) {
+        $_SESSION['logado'] = true;
+        header('Location: protegido.php');
+        exit;
     } else {
-        $erro = "Usuário ou senha inválidos!";
+        $erro = 'Usuário ou senha incorretos.';
     }
 }
 ?>
-<?php include('includes/header.php'); ?>
-<div class="container">
+<?php include 'includes/header.php'; ?>
+<div class="container mt-5">
     <h2>Login</h2>
-    <?php if ($erro): ?><div class="alert alert-danger"><?= $erro ?></div><?php endif; ?>
-    <?php if (!empty($_SESSION['mensagem'])): ?>
-        <div class="alert alert-success"><?= $_SESSION['mensagem']; unset($_SESSION['mensagem']); ?></div>
+    <?php if ($erro): ?>
+        <div class="alert alert-danger"><?= $erro ?></div>
     <?php endif; ?>
-    <form method="POST">
+    <form method="post">
         <div class="mb-3">
             <label for="usuario" class="form-label">Usuário</label>
-            <input type="text" class="form-control" name="usuario" required>
+            <input type="text" name="usuario" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="senha" class="form-label">Senha</label>
-            <input type="password" class="form-control" name="senha" required>
+            <input type="password" name="senha" class="form-control" required>
         </div>
         <button type="submit" class="btn btn-primary">Entrar</button>
     </form>
 </div>
-<link rel="stylesheet" href="estilo.css">
-<?php include('includes/footer.php'); ?>
+<?php include 'includes/footer.php'; ?>
