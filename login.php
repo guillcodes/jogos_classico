@@ -3,7 +3,7 @@ session_start();
 $erro = '';
 
 $usuario_salvo = 'admin';
-$senha_hash_salva = password_hash('123456', PASSWORD_DEFAULT);
+$senha_hash_salva = password_hash('12345', PASSWORD_DEFAULT);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $_POST['usuario'] ?? '';

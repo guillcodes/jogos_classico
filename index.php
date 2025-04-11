@@ -12,25 +12,25 @@ $jogos_fixos = [
     [
         'titulo' => 'Sonic the Hedgehog',
         'descricao' => 'O ouriço azul mais rápido dos games, sucesso no Mega Drive.',
-        'imagem' => 'https://upload.wikimedia.org/wikipedia/en/0/0d/Sonic_the_Hedgehog_1_Genesis_box_art.jpg',
+        'imagem' => 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3rNCFw_XyohXV7eHR5iTSzizAC9ylGQVRPqpIiKoxpFc8HBG9JP65PKaY39_ZdFL9EIFZmankYigz7VwZVTg7WEgDLoyTbWWZVfZgc-x4SfrplZFIK0eMs3v86mNDVI1I8l7RyHnfW30/s1600/SONIC.jpg',
         'genero' => 'Plataforma'
     ],
     [
         'titulo' => 'The Legend of Zelda',
         'descricao' => 'Aventura épica com exploração, ação e quebra-cabeças.',
-        'imagem' => 'https://upload.wikimedia.org/wikipedia/en/e/e0/The_Legend_of_Zelda_NES_box_art.png',
+        'imagem' => 'https://nintendoboy.com.br/wp-content/uploads/2021/02/zelda-dos-primordios-1.jpg',
         'genero' => 'Aventura'
     ],
     [
         'titulo' => 'Street Fighter II',
         'descricao' => 'Clássico jogo de luta que marcou os fliperamas dos anos 90.',
-        'imagem' => 'https://upload.wikimedia.org/wikipedia/en/2/2d/Street_Fighter_II_The_World_Warrior.png',
+        'imagem' => 'https://sm.ign.com/t/ign_br/cover/s/street-fig/street-fighter-ii_nfdm.300.jpg',
         'genero' => 'Luta'
     ],
     [
         'titulo' => 'Pac-Man',
         'descricao' => 'Um dos primeiros sucessos dos videogames com um personagem icônico.',
-        'imagem' => 'https://upload.wikimedia.org/wikipedia/en/9/9b/Pac-Man_cover.png',
+        'imagem' => 'https://imgsapp2.correiobraziliense.com.br/app/noticia_127983242361/2015/05/22/484057/20150521194740639550u.jpg',
         'genero' => 'Arcade'
     ]
 ];
@@ -78,6 +78,7 @@ include 'includes/header.php';
                         <h5 class="card-title"><?= htmlspecialchars($jogo['titulo']) ?></h5>
                         <p class="card-text"><?= htmlspecialchars($jogo['descricao']) ?></p>
                         <span class="badge bg-secondary"><?= htmlspecialchars($jogo['genero']) ?></span>
+                        <a href="detalhes.php?titulo=<?= urlencode($jogo['titulo']) ?>" class="btn btn-sm btn-outline-primary mt-3">Ver detalhes</a>
                     </div>
                 </div>
             </div>
